@@ -1,0 +1,99 @@
+:root {
+    --input-border-color : rgba(0,128,128,0.9);
+    --modal-bg : rgba(0,0,0,.8);
+    --btn-color: linear-gradient(to bottom, #3392ec, #2e89de, #2a80d1, #2578c3, #216fb6);
+    --btn-colorhover: linear-gradient(to top, #216fb6, #2475c0, #277cca, #2b82d4, #2e89de, #2e89de, #2e89de, #2e89de, #2b82d4, #277cca, #2475c0, #216fb6);
+}
+
+/* TAB */
+ul.tabs { padding:0px; display: grid; grid-auto-flow: column; list-style: none; }
+.tab-content { display: none; }
+.tab-content.active { display:block; }
+.tabs .disabled { cursor: none; pointer-events: none; }
+
+
+/* Search Result */
+.searchbox { position: relative; }
+ul.searchresult { padding:0px; list-style: none; background:rgba(255,255,255,1); box-shadow:0px 3px 3px 0px rgba(0,0,0,.2); width:131px; border-radius:3px; position: absolute; margin-top:0em; z-index:2; }
+ul.searchresult > li { padding:.2em .5em; font-family: sans-serif; font-size:.9em; transition:.5s all;  cursor: pointer; }
+ul.searchresult > li:hover { background:rgba(0,0,0,0.1); }
+ul.searchresult > li > * { pointer-events: none; }
+
+
+/* Form-Input */
+
+.input-field { background:rgba(255,255,255,1); border:2px solid rgba(0,0,0,.1); position: relative; padding:.35em; border-radius:.3em; transition:2s all; display: grid; align-items: center; }
+.input-field:hover { border-color: var(--input-border-color); }
+
+
+.input-field label { pointer-events: none; font-weight:400; text-transform: capitalize; font-family: sans-serif; padding:.4em; position:absolute; transition:.3s all; font-size:1em; color:rgba(0,0,0,0.5); }
+.input-field:hover label,.input-field label.active { top:-.7em; left:.2em; background:rgba(255,255,255,1);  font-size:.9em; padding:.1em .2em; animation:fadeIn .5s; color:rgba(0,128,128,0.9); }
+
+.input-field input { width:99%; display: block; padding:.3em; border:none; outline:none; font-size:1em; }
+
+.input-field textarea { width:99%; display: block; padding:.3em; border:none; outline:none; font-size:1em; resize: vertical; }
+
+.input-field select { all:unset; width:99%; display: block; padding:.3em; border:none; outline:none; font-size:1em; }
+
+
+
+.input-field.g1 { grid-template-columns:1fr; }
+.input-field.ga1 { grid-template-columns:auto 1fr; }
+.input-field.g1a { grid-template-columns:1fr auto; }
+.input-field.ga1a { grid-template-columns:auto 1fr auto; }
+
+
+.input-field.ga1a label { pointer-events: none; font-weight:400; left:1.5em; text-transform: capitalize; font-family: sans-serif; padding:.4em; position:absolute; transition:.3s all; font-size:1em; color:rgba(0,0,0,0.5); }
+.input-field.ga1a:hover label,.input-field.ga1a label.active { top:-.7em; left:.5em; background:rgba(255,255,255,1);  font-size:.9em; padding:.1em .2em; animation:fadeIn .5s; color:rgba(0,128,128,0.9); }
+
+.input-field.g1a label { pointer-events: none; font-weight:400; left:1.5em; text-transform: capitalize; font-family: sans-serif; padding:.4em; position:absolute; transition:.3s all; font-size:1em; color:rgba(0,0,0,0.5); }
+.input-field.g1a:hover label,.input-field.g1a label.active { top:-.7em; left:.5em; background:rgba(255,255,255,1);  font-size:.9em; padding:.1em .2em; animation:fadeIn .5s; color:rgba(0,128,128,0.9); }
+
+.input-field.ga1 label { pointer-events: none; font-weight:400; left:1.5em; text-transform: capitalize; font-family: sans-serif; padding:.4em; position:absolute; transition:.3s all; font-size:1em; color:rgba(0,0,0,0.5); }
+.input-field.ga1:hover label,.input-field.ga1 label.active { top:-.7em; left:.5em; background:rgba(255,255,255,1);  font-size:.9em; padding:.1em .2em; animation:fadeIn .5s; color:rgba(0,128,128,0.9); }
+
+
+
+.input-field.ga1a:hover i,.input-field.ga1:hover i,.input-field.g1a:hover i,.input-field.g1:hover i { color:rgba(0,128,128,0.9); font-size:1.1em; padding:0px .2em;  }
+.input-field i {  font-size:1.1em; padding:0px .2em; transistion:.5s all; }
+
+/* Editable */
+input.editable { all:unset; -webkit-appearance:none; background:transparent; border:none; width: auto; font-size:1rem; outline:none; border-bottom:2px solid var(--input-border-color); }
+input.editable[readonly] { all:unset; -webkit-appearance:none; background:transparent; border:none; width: auto; font-size:1rem; outline:none; }
+input.editable[readonly]:hover { background:rgba(0,0,0,.04); }
+
+
+/* transinput */
+.transinput { background:transparent; border:0px; font-size:1em; outline:none; padding:.5em; width:calc(100% - 1em); resize: vertical; }
+
+/* Modal */
+
+.modal.active { margin:0 auto; position: fixed; top:0px; left:0px; background:var(--modal-bg); width:100vw; height:100vh; display: grid; align-items: center; justify-content: center; text-align: center; grid-template-rows:1fr; grid-template-columns:1fr; }
+.modal.active .modal-container { display:block; background:#fff; width:70%; margin: 0 auto; padding:1em 2em; border-radius:.5em;  position:relative; }
+.modal.active .modalclosebtn { color:rgba(255,0,0,1); position:absolute; font-style: normal; right:0px; top:0px; padding:.5em; transistion:.5s all; cursor: pointer; }
+.modal.active .modalclosebtn:hover { transform:scale(1.5); }
+
+.modal.active.large { align-items: stretch; }
+.modal.active.large .modal-container { overflow: hidden; overflow-y: auto; width:90%; height:90vh; margin-top:1em; }
+.modal.active.large .modalclosebtn { position: fixed; }
+
+
+.modal:not(.active) { display: none; }
+
+
+/*  Btn */
+.btn { cursor: pointer; background:var(--btn-color); color:rgba(255,255,255,.8); font-weight:400; font-size:1em; padding:.5em 1em; border-radius:4px; text-transform: capitalize; transition:.5s all; }
+.btn.small { padding:.5em 1em; font-size:.8em; }
+.btn.big { padding:.7em 1.2em; font-size:1.1em; }
+
+.btn:hover { color:rgba(255,255,255,1); background:var(--btn-colorhover); }
+
+
+
+/* General Grid */
+.g1 { display: grid; grid-template-columns:1fr;  align-items:center;}
+.g11 { display: grid; grid-template-columns:1fr 1fr; grid-gap:.5em; }
+.g111 { display: grid; grid-template-columns:1fr 1fr 1fr; grid-gap:.5em; }
+.g1a { display: grid; grid-template-columns:1fr auto; align-items:center; grid-gap:.5em; }
+.ga1 { display: grid; grid-template-columns:auto 1fr;  align-items:center;  grid-gap:.5em;}
+.ga1a { display: grid; grid-template-columns:auto 1fr auto; align-items:center;  grid-gap:.5em;}
